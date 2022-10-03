@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import {
+  GestureHandlerRootView,
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
 } from "react-native-gesture-handler";
@@ -54,13 +55,15 @@ export default function App() {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.circle}>
-        <PanGestureHandler onGestureEvent={panGestureEvent}>
-          <Animated.View style={[styles.square, rStyle]} />
-        </PanGestureHandler>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <View style={styles.circle}>
+          <PanGestureHandler onGestureEvent={panGestureEvent}>
+            <Animated.View style={[styles.square, rStyle]} />
+          </PanGestureHandler>
+        </View>
       </View>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
